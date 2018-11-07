@@ -29,18 +29,18 @@ public class MainActivity extends AppCompatActivity {
         ImageView iv_aa = (ImageView) findViewById(R.id.iv_aa);
 
         //1.先把a.png图片转换成bitmap 显示到iv_a上
-        Bitmap image = BitmapFactory.decodeResource(getResources(), R.mipmap.a);
-        iv_a.setImageBitmap(image);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.a);
+        iv_a.setImageBitmap(bitmap);
 
         //创建原图的副本
         //3.创建一个模板 相当于创建了一个大小和原图的图但是什么都没有
-        Bitmap copy = Bitmap.createBitmap(image.getWidth(), image.getHeight(), image.getConfig());
+        Bitmap copy = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
         //4.创建一个可以编辑的类
         Paint paint = new Paint();
         //5.创建一个用于编辑的画板
         Canvas canvas = new Canvas(copy);
         //6.开始创建副本
-        canvas.drawBitmap(image, new Matrix(), paint);
+        canvas.drawBitmap(bitmap, new Matrix(), paint);
         //7.操作拷贝过后的图片
         copy.setPixel(30, 20, Color.GREEN);
         //.把copy显示到控件上
